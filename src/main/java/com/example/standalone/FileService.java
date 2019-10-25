@@ -15,8 +15,6 @@ public class FileService {
         String path = "C:\\Users\\User\\Desktop\\ori.bin";
         String path2 = "C:\\Users\\User\\Desktop\\fileMod.bin";
 
-        FileOutputStream out = new FileOutputStream(path2);
-
         byte[] byteTable = Files.readAllBytes(Paths.get(path));
 
         int counter = 0;
@@ -43,7 +41,7 @@ public class FileService {
                 counter2++;
             }
         }
-
+        FileOutputStream out = new FileOutputStream(path2);
         out.write(byteTable);
 
 //        ArrayList<Integer> record = new ArrayList<>();
