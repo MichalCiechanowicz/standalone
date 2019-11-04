@@ -1,5 +1,6 @@
 package com.example.standalone;
 
+import com.vaadin.flow.component.upload.Upload;
 import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class File {
@@ -14,6 +16,7 @@ public class File {
     private final String UPLOAD_FILE;
     private final String SAVE__FILE;
     private byte[] binaryFile;
+
 
     public File() throws IOException {
 
@@ -27,20 +30,21 @@ public class File {
         save.write(binaryFile);
     }
 
-    ArrayList getIgnitionMap() throws IOException {
+
+    public List getIgnitionMap() throws IOException {
         binaryFile = Files.readAllBytes(Paths.get(UPLOAD_FILE));
-        ArrayList<Double> ignition = new ArrayList<>();
+        List<Double> ignitionBytesDecimalUnSign = new ArrayList<>();
         int counter = 0;
-        for (int i = 90706; i < 90899; i++) {
-            ignition.add((double) (binaryFile[i]) * 0.75);
+        for (int i = 90706; i < 90898; i++) {
+            ignitionBytesDecimalUnSign.add((double) (binaryFile[i]) * 0.75);
 //            System.out.println(ignition.get(counter) + " ");
             counter++;
         }
 //        System.out.println("bajtow: " + counter);
-        return ignition;
+        return ignitionBytesDecimalUnSign;
     }
 
-    public String getUPLOAD_FILE() {
+    public String getUPLOAD_FILE(Upload source) {
         return UPLOAD_FILE;
     }
 
