@@ -26,7 +26,7 @@ public class IgnitionView extends HorizontalLayout {
         Grid<File> ignitionMap = new Grid<>(File.class);
         ignitionMap.setItems(ignition);
 
-        add(textField);
+        add(textField,ignitionMap);
 
     }
 }
