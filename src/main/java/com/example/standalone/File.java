@@ -20,7 +20,7 @@ public class File {
 
     public File() throws IOException {
 
-        UPLOAD_FILE = "C:\\Users\\User\\Desktop\\ori.bin";
+        UPLOAD_FILE = "D:\\Programowanie\\SDA\\InteliJ\\standalone\\src\\main\\resources\\ori.bin";
         SAVE__FILE = "C:\\Users\\User\\Desktop\\fileMod.bin";
 
     }
