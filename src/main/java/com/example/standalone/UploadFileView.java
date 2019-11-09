@@ -21,7 +21,4 @@ public class UploadFileView extends Upload {
 
 
     }
-
-    //todo ogarnac uplad pliku tak zeby byl uzywany przez fileservice
-
 }

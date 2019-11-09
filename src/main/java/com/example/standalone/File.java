@@ -17,12 +17,24 @@ public class File {
     private final String SAVE__FILE;
     private byte[] binaryFile;
 
-
     public File() throws IOException {
 
         UPLOAD_FILE = "D:\\Programowanie\\SDA\\InteliJ\\standalone\\src\\main\\resources\\ori.bin";
         SAVE__FILE = "C:\\Users\\User\\Desktop\\fileMod.bin";
 
+    }
+
+    public List getIgnitionMap() throws IOException {
+        binaryFile = Files.readAllBytes(Paths.get(UPLOAD_FILE));
+        List<Double> ignitionBytesDecimalSign = new ArrayList<>();
+        int counter = 0;
+        for (int i = 90706; i < 90898; i++) {
+            ignitionBytesDecimalSign.add((double) (binaryFile[i]) * 0.75);
+//            System.out.println(ignition.get(counter) + " ");
+//            counter++;
+        }
+//        System.out.println("bajtow: " + counter);
+        return ignitionBytesDecimalSign;
     }
 
     private void saveFile() throws IOException {
@@ -31,18 +43,6 @@ public class File {
     }
 
 
-    public List getIgnitionMap() throws IOException {
-        binaryFile = Files.readAllBytes(Paths.get(UPLOAD_FILE));
-        List<Double> ignitionBytesDecimalUnSign = new ArrayList<>();
-        int counter = 0;
-        for (int i = 90706; i < 90898; i++) {
-            ignitionBytesDecimalUnSign.add((double) (binaryFile[i]) * 0.75);
-//            System.out.println(ignition.get(counter) + " ");
-            counter++;
-        }
-//        System.out.println("bajtow: " + counter);
-        return ignitionBytesDecimalUnSign;
-    }
 
     public String getUPLOAD_FILE(Upload source) {
         return UPLOAD_FILE;
